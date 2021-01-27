@@ -10,3 +10,5 @@ Outils pour l'analyse du discours : https://journodev.tech/outils-pour-lanalyse-
 Heatmap : https://github.com/talgalili/heatmaply
 
 HTML widgets pour R : http://gallery.htmlwidgets.org/
+
+Ressources R pour journalistes : https://rforjournalists.com/
