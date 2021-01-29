@@ -1,11 +1,7 @@
 #Page Covid JournoDev : https://journodev.tech/covid19/
 
 library(tidyverse)
-library(dplyr)
 library(lubridate)
-library(ggplot2)
-library(stringr)
-library(dplyr)
 
 #Récupération données CSV
 epistat_csv <- read.csv("https://epistat.sciensano.be/Data/COVID19BE_CASES_AGESEX.csv", header = TRUE, fileEncoding = "UTF-8")
