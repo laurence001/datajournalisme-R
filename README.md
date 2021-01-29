@@ -18,6 +18,8 @@ Rappels Q1 : https://journalisme.ulb.ac.be/datatechnique/ma2/
 
 Documentation package Highcharter : https://www.rdocumentation.org/packages/highcharter/versions/0.8.2
 
+Documentation du développeur : https://www.highcharts.com/blog/tutorials/highcharts-for-r-users/
+
 Outils pour l'analyse du discours : https://journodev.tech/outils-pour-lanalyse-du-discours/
 
 Heatmap : https://github.com/talgalili/heatmaply
