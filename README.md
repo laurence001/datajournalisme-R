@@ -16,6 +16,8 @@ Exploration des data covid avec R : https://blog.rstudio.com/2020/12/23/explorin
 
 Rappels Q1 : https://journalisme.ulb.ac.be/datatechnique/ma2/
 
+Documentation package Highcharter : https://www.rdocumentation.org/packages/highcharter/versions/0.8.2
+
 Outils pour l'analyse du discours : https://journodev.tech/outils-pour-lanalyse-du-discours/
 
 Heatmap : https://github.com/talgalili/heatmaply
