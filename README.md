@@ -24,8 +24,6 @@ DataCamp Highcharter (tuto) : https://www.datacamp.com/community/tutorials/data-
 
 Outils pour l'analyse du discours : https://journodev.tech/outils-pour-lanalyse-du-discours/
 
-Heatmap : https://github.com/talgalili/heatmaply
-
 HTML widgets pour R : http://gallery.htmlwidgets.org/
 
 R pour journalistes : https://rforjournalists.com/
