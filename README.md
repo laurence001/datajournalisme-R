@@ -20,6 +20,8 @@ Documentation package Highcharter : https://www.rdocumentation.org/packages/high
 
 Documentation du développeur : https://www.highcharts.com/blog/tutorials/highcharts-for-r-users/
 
+DataCamp Highcharter (tuto) : https://www.datacamp.com/community/tutorials/data-visualization-highcharter-r
+
 Outils pour l'analyse du discours : https://journodev.tech/outils-pour-lanalyse-du-discours/
 
 Heatmap : https://github.com/talgalili/heatmaply
