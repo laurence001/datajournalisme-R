@@ -12,9 +12,11 @@ Applications : données Covid-19 Sciensano https://epistat.wiv-isp.be/covid/
 
 ### Ressources complémentaires
 
+Rappels Q1 : https://journalisme.ulb.ac.be/datatechnique/ma2/
+
 Exploration des data covid avec R : https://blog.rstudio.com/2020/12/23/exploring-us-covid-19-cases/
 
-Rappels Q1 : https://journalisme.ulb.ac.be/datatechnique/ma2/
+Cookbook BBC Visual & DDJ : https://bbc.github.io/rcookbook/
 
 Documentation package Highcharter : https://www.rdocumentation.org/packages/highcharter/versions/0.8.2
 
