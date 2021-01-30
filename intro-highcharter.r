@@ -39,14 +39,6 @@ gapminder %>%
     color = "crimson"
   )
 
-gapminder %>%
-  select(country,life_expectancy) %>%
-  filter(country == countries) %>%
-  hchart(
-    'bar', hcaes(x = country, y = life_expectancy),
-    color = "crimson"
-  )
-
 gapminder %>% 
   filter(country == countries & year > 2000) %>%
   hchart(
