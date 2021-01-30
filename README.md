@@ -14,7 +14,7 @@ Applications : données Covid-19 Sciensano https://epistat.wiv-isp.be/covid/
 
 Rappels Q1 : https://journalisme.ulb.ac.be/datatechnique/ma2/
 
-Exploration des data covid avec R : https://blog.rstudio.com/2020/12/23/exploring-us-covid-19-cases/
+Documentation packages Tidyverse : https://www.tidyverse.org/packages/
 
 Cookbook BBC Visual & DDJ : https://bbc.github.io/rcookbook/
 
@@ -24,8 +24,10 @@ Documentation du développeur : https://www.highcharts.com/blog/tutorials/highch
 
 DataCamp Highcharter (tuto) : https://www.datacamp.com/community/tutorials/data-visualization-highcharter-r
 
-Outils pour l'analyse du discours : https://journodev.tech/outils-pour-lanalyse-du-discours/
+Exploration des data covid avec R : https://blog.rstudio.com/2020/12/23/exploring-us-covid-19-cases/
 
 HTML widgets pour R : http://gallery.htmlwidgets.org/
 
 R pour journalistes : https://rforjournalists.com/
+
+Outils pour l'analyse du discours : https://journodev.tech/outils-pour-lanalyse-du-discours/
