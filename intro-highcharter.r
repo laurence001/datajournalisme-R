@@ -22,8 +22,12 @@ gapminder %>%
   ) %>%
   hc_colors("#CC0033")
 
+gapminder %>%
+  hchart('column', hcaes(x = year, y = life_expectancy, group = country)) %>%
+  hc_colors(c("#999999", "#E69F00","#CC0033")) #Choix des couleurs hexadécimales
+
 #Infos couleurs : https://www.htmlcsscolor.com/
-#Générateur palettes daaviz : https://learnui.design/tools/data-color-picker.html
+#GÃ©nÃ©rateur palettes daaviz : https://learnui.design/tools/data-color-picker.html
 
 #Graphique en barre inversé
 
@@ -43,20 +47,53 @@ gapminder %>%
     color = "crimson"
   )
 
-gapminder %>%
-  hchart('column', hcaes(x = year, y = life_expectancy, group = country)) %>%
-  hc_colors(c("#999999", "#E69F00","#CC0033")) #Choix des couleurs hexadécimales
+gapminder %>% 
+  filter(country == countries & year > 2000) %>%
+  hchart(
+    'bar', hcaes(x = year, y = life_expectancy, group = country)
+  )  %>%
+  hc_plotOptions(column = list(stacking = "normal")) %>%
+  hc_colors(c("#999999", "#E69F00","#CC0033"))
 
-#Treemap
+gapminder %>% 
+  filter(country == countries & year > 2002 & year < 2013) %>%
+  hchart(
+    'column', hcaes(x = year, y = life_expectancy, group = country)
+  )  %>%
+  hc_plotOptions(column = list(stacking = "normal")) %>%
+  hc_colors(c("#999999", "#E69F00","#CC0033"))
 
-pays <- gapminder %>%
-  filter(region %in% c("Western Europe","Eastern Europe","Southern Europe","Northern Europe") & year == 2012) %>%
-  select(country,population)
+#Stacked
 
-View(pays)
+pays_stack <- c("Belgique","France","Pays-Bas")
+femmes <- c(30,70,10)
+hommes <- c(70,30,90)
 
-pays %>%
-  hchart(type = "treemap", hcaes(x = country, value = population, color = population))
+highchart() %>% 
+  hc_chart(type = "bar") %>%
+  hc_plotOptions(bar = list(stacking = "normal")) %>%
+  hc_yAxis(max=100) %>%
+  hc_xAxis(categories = pays_stack) %>%
+  hc_add_series(name="Hommes",
+                data = hommes,
+                stack = "score") %>%
+  hc_add_series(name="Femmes",
+                data = femmes,
+                stack = "score")  %>%
+  hc_colors(c("#E69F00","#CC0033"))
+
+highchart() %>% 
+  hc_chart(type = "column") %>%
+  hc_plotOptions(column = list(stacking = "normal")) %>%
+  hc_yAxis(max=100) %>%
+  hc_xAxis(categories = pays_stack) %>%
+  hc_add_series(name="Hommes",
+                data = hommes,
+                stack = "score") %>%
+  hc_add_series(name="Femmes",
+                data = femmes,
+                stack = "score")  %>%
+  hc_colors(c("#E69F00","#CC0033"))
 
 #Graphique en courbe
 
@@ -139,6 +176,15 @@ gapminder %>%
   )  %>%
   hc_colors(c("#E69F00"))
 
+#Treemap
+
+pays <- gapminder %>%
+  filter(region %in% c("Western Europe","Eastern Europe","Southern Europe","Northern Europe") & year == 2012) %>%
+  select(country,population)
+
+pays %>%
+  hchart(type = "treemap", hcaes(x = country, value = population, color = population))
+
 #Options de graphiques
 
 # hc_title(text = "titre ici")
@@ -175,8 +221,8 @@ hcmap(
   joinBy = c("name", "country") #on recherche le nom du pays dans le geojson et le fichier data
 ) %>%
   hc_colorAxis(
-    stops = color_stops(colors = viridisLite::inferno(10, begin = 0.1)), #modèle de couleurs inferno
-    type = "logarithmic" #peut être numeric (meilleur logarithmic pour visualiser les différences - granularité)
+    stops = color_stops(colors = viridisLite::inferno(10, begin = 0.1)), #modÃ¨le de couleurs inferno
+    type = "logarithmic" #peut Ãªtre numeric (meilleur logarithmic pour visualiser les diffÃ©rences - granularitÃ©)
   ) 
 
 #Fonds de carte : https://github.com/highcharts/map-collection-dist
