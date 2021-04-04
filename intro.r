@@ -222,6 +222,7 @@ vecteur3
 #Ajouter un vecteur au dataframe
 
 tableau2 <- cbind(tableau,vecteur3)
+colnames(tableau2) <- c("Quantité","Pertes","Evolution")
 tableau2
 
 summary(tableau2)
@@ -234,3 +235,46 @@ tableau2[1,3] #valeur de la première ligne et de la troisième colonne
 
 #Pour lier deux dataframe (même nombre de colonnes et d'arguments ) :
 # df <- rbind(df1,df2)
+
+#package formattable pour visualiser le tableau dans un format HTML
+#install.packages("formattable")
+library(formattable)
+formattable(tableau2)
+
+#Rappel ggplot2
+#install.packages("tidyverse")
+library(tidyverse)
+
+#points
+  tableau2 %>%
+  ggplot(aes(Pertes, Evolution)) +
+  geom_point()
+
+#ligne
+  tableau2 %>%
+    ggplot(aes(Pertes, Evolution)) +
+    geom_line()
+
+#histogramme
+  tableau2 %>%
+    ggplot(aes(Evolution)) +
+    geom_histogram(binwidth = 1, color = "blue")
+
+#barre
+  tableau2 %>%
+    ggplot(aes(Pertes)) + 
+    theme_minimal() + 
+    geom_bar()
+  
+  #thèmes : https://ggplot2.tidyverse.org/reference/ggtheme.html
+  
+  #equivalent
+  g <- ggplot(tableau2, aes(Pertes))
+  g + geom_bar()
+  
+  ggplot(tableau2, aes(fill=Quantité, y=Evolution, x=Pertes)) + 
+    geom_bar(position="stack", stat="identity") +
+    ggtitle("Titre de ma dataviz")
+  
+#References : https://ggplot2.tidyverse.org/reference/geom_bar.html
+#Secteurs : https://www.r-graph-gallery.com/piechart-ggplot2.html
