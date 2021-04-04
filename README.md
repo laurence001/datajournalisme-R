@@ -12,7 +12,6 @@ Applications : données Covid-19 Sciensano https://epistat.wiv-isp.be/covid/
 
 ### Ressources complémentaires
 
-Rappels Q1 : https://journalisme.ulb.ac.be/datatechnique/ma2/
 
 Documentation packages Tidyverse : https://www.tidyverse.org/packages/
 
