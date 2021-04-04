@@ -278,3 +278,6 @@ library(tidyverse)
   
 #References : https://ggplot2.tidyverse.org/reference/geom_bar.html
 #Secteurs : https://www.r-graph-gallery.com/piechart-ggplot2.html
+  
+#sauvegarde CSV
+  download.file(tabeau2, "fichier.csv")
