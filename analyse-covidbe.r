@@ -1,5 +1,3 @@
-#Module 1 : principes de base pour l'analyse de données
-
 #install.packages("rjson")
 library("tibble")
 library("dplyr")
