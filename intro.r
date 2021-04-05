@@ -226,6 +226,12 @@ colnames(tableau2) <- c("Quantité","Pertes","Evolution")
 tableau2
 
 summary(tableau2)
+plot(tableau2$Pertes)
+
+tab3 <- as.matrix(tableau2)
+barplot(tab3, col = "steelblue")
+barplot(tab3, horiz = TRUE, col = "steelblue")
+#Ressource: https://statisticsglobe.com/barplot-in-r
 
 head(tableau2) #affiche les premières lignes du tableau
 tail(tableau2) #affiche les dernières lignes du tableau
@@ -278,6 +284,3 @@ library(tidyverse)
   
 #References : https://ggplot2.tidyverse.org/reference/geom_bar.html
 #Secteurs : https://www.r-graph-gallery.com/piechart-ggplot2.html
-  
-#sauvegarde CSV
-  download.file(tabeau2, "fichier.csv")
