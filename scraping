@@ -1,0 +1,45 @@
+#install.packages(“rvest”)
+library(rvest)
+
+#Pour augmenter la mémoire
+getOption("max.print")
+options(max.print=9999999)
+
+jo <- read_html("https://fr.wikipedia.org/wiki/Sportifs_les_plus_m%C3%A9daill%C3%A9s_aux_Jeux_olympiques")
+jo
+
+#plusieurs URL's
+#à la main
+#urls <- c("https://fr.wikipedia.org/wiki/Sportifs_les_plus_m%C3%A9daill%C3%A9s_aux_Jeux_olympiques",
+         # "https://fr.wikipedia.org/wiki/Sportifs_les_plus_m%C3%A9daill%C3%A9s_aux_Jeux_olympiques2",
+          #"https://fr.wikipedia.org/wiki/Sportifs_les_plus_m%C3%A9daill%C3%A9s_aux_Jeux_olympiques3")
+
+
+texte <- jo %>%
+  html_nodes("p") %>%
+  html_text()
+texte
+
+image <- jo %>%
+  html_nodes("img") %>%
+  html_attr("src")
+image
+
+table <- jo %>% 
+  html_table(fill = TRUE)
+View(table)
+
+first_table <- table[[1]]
+medailles <- as.data.frame(first_table)
+str(medailles)
+
+medailles_trois <- jo %>%
+  html_nodes("table") %>%
+  .[[3]] %>%
+  html_table(fill = TRUE)
+ 
+View(medailles_trois)
+
+write.csv(medailles,'medailles.csv')
+
+#Documentation https://www.rdocumentation.org/packages/rvest/versions/0.3.6
