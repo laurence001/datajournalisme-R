@@ -2,19 +2,26 @@
 
 library(tidyverse)
 library(lubridate)
+library(highcharter)
+
+#augmentation de la mémoire
+getOption("max.print")
+options(max.print=9999999)
 
 #Récupération données CSV
 epistat_csv <- read.csv("https://epistat.sciensano.be/Data/COVID19BE_CASES_AGESEX.csv", header = TRUE, fileEncoding = "UTF-8")
 cov_csv <- as.data.frame(epistat_csv)
 tail(cov_csv,150)
+str(cov_csv)
 
 colnames(cov_csv) <- c("Date","Province","Region","Age","Genre","Cas")
-head(cov_csv)
+str(cov_csv)
 
-#filtre sur les valeurs qui ne sont pas en janvier 2021
-cov_csv <- cov_csv %>%
-  filter(Date != "2021-01-01")
-tail(cov_csv)
+#filtre sur les valeurs qui ne sont pas en 2021
+cov1_csv <- cov_csv %>%
+  select(Date, Age, Cas) %>%
+  filter(Date >= "2020-03-01" & Date <= "2020-12-31")
+cov1_csv
 
 #modification dy type de données (facteurs)
 cov_csv$Genre <- as.factor(cov_csv$Genre)
@@ -160,30 +167,41 @@ test <- read.csv("https://epistat.sciensano.be/Data/COVID19BE_tests.csv", header
 tests <- as.data.frame(test)
 tail(tests)
 tests <- tests %>%
-  filter(tests != "2021-01-01")
-totalp <- sum(tests$DATE)
+  filter(tests < "2021-04-01")
+head(tests)
+
+totalp <- sum(tests$TESTS_ALL)
 totalp
+
 totalpc <- sum(tests$TESTS_ALL_POS)
 totalpc
+
+#Taux de positivité
 totalpc/totalp*100
 
 tests$DATE <- as.Date(tests$DATE)
 
+#filtrer tests positifs
 testsp <- tests %>% 
   filter(!is.na(DATE)) %>%
   group_by(DATE=floor_date(DATE, "day")) %>%
   summarize(TESTS_ALL_POS=sum(TESTS_ALL_POS))
+testsp
 
+#tous les tests
 tests <- tests %>% 
   filter(!is.na(DATE)) %>%
   group_by(DATE=floor_date(DATE, "day")) %>%
   summarize(TESTS_ALL=sum(TESTS_ALL))
+tests
 
 testsf <- merge(tests,testsp)
 colnames(testsf) <- c("Date","Tous","Positifs")
 
 testsf$Date <- as.Date(testsf$Date)
 class(testsf$Date)
+
+head(testsf)
 
 highchart()%>%
   hc_add_series(name = "Tests",testsf, "spline", hcaes(y = Tous, x = Date)) %>%
@@ -232,8 +250,6 @@ all %>%
   group_by(date=floor_date(date, "day")) %>%
   ggplot(aes(date, cas, col = region)) +
   geom_line()
-
-library("highcharter")
 
 colnames(all) <- c("Région","Date","Cas")
 
@@ -288,3 +304,4 @@ tab_a %>%
   hc_credits(text = "Source : Sciensano",
              href = "https://epistat.wiv-isp.be/covid/",
              enabled = TRUE)
+
