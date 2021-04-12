@@ -1,9 +1,13 @@
-library(dplyr)
+library(tidyverse)
 library(highcharter)
 library(dslabs)
 
 data(gapminder)
-View(gapminder)
+str(gapminder)
+
+#augmentation de la mémoire
+getOption("max.print")
+options(max.print=9999999)
 
 #Graphique en barres
 
@@ -27,7 +31,7 @@ gapminder %>%
   hc_colors(c("#999999", "#E69F00","#CC0033")) #Choix des couleurs hexadécimales
 
 #Infos couleurs : https://www.htmlcsscolor.com/
-#GÃ©nÃ©rateur palettes daaviz : https://learnui.design/tools/data-color-picker.html
+#Générateur de palettes daaviz : https://learnui.design/tools/data-color-picker.html
 
 #Graphique en barre inversé
 
@@ -162,7 +166,7 @@ gapminder %>%
 
 
 gapminder %>% 
-  filter(country %in% "Belgium" & year %in% years2) %>%
+  filter(country %in% "France" & year %in% c(1980,1990,2000,2010)) %>%
   hchart(
     'bubble', hcaes(x = year, y = gdp)
   )  %>%
