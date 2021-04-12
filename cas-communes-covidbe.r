@@ -1,4 +1,5 @@
 library(DT)
+library(stringr)
 
 communes <- read.csv("https://epistat.sciensano.be/Data/COVID19BE_CASES_MUNI_CUM.csv", header = TRUE, fileEncoding = "UTF-8")
 commune <- as.data.frame(communes)
@@ -7,7 +8,6 @@ str(commune)
 commune <- subset(commune,select=c(TX_DESCR_FR,REGION,CASES))
 colnames(commune) <- c("Commune","Région","Cas")
 
-library(stringr)
 commune$Région <- str_replace(commune$Région, "Flanders", "Flandre")
 commune$Région <- str_replace(commune$Région, "Wallonia", "Wallonie")
 commune$Région <- str_replace(commune$Région, "Brussels", "Bruxelles")
