@@ -1,7 +1,5 @@
 #install.packages("rjson")
-library("tibble")
-library("dplyr")
-library("ggplot2")
+library("tidyverse")
 library("rjson")
 library("lubridate")
 
@@ -135,7 +133,7 @@ tail(new_csv)
 
 pop <- sum(unique(new_csv$Population))
 pop
- 
+
 new_csv <- mutate(new_csv, Taux = Cas / pop * 100000)  #Taux
 new_csv <- mutate(new_csv, TauxProv = Cas / Population * 100000) #Taux par province
 head(new_csv)
@@ -212,7 +210,7 @@ date_cov
 sum(date_cov$cast)
 
 date_cov_month <- tab_date %>% 
-  group_by(date=floor_date(obs, "month")) %>%
+  group_by(date=floor_date(obs, "day")) %>%
   summarize(cas=sum(cast))
 date_cov_month
 
@@ -223,7 +221,7 @@ date <- cov_csv$Date
 region <- cov_csv$Region
 cas <- cov_csv$Cas
 tab_r <- data.frame(date,region,cas)
-tab_r <- na.omit(tab_r)
+tab_r <- na.omit(tab_r) #supprimer les NA
 
 str(tab_r)
 
@@ -237,7 +235,9 @@ sum(date_region$cas)
 sum(cov_csv$Cas)
 
 #différence : NA
-date_region %>% arrange(desc(cas)) %>% top_n(5)
+dif <- date_region %>% arrange(desc(cas)) %>% top_n(5)
+
+dif
 
 #total par région
 region <- tab_r %>% 
