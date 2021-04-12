@@ -33,13 +33,8 @@ first_table <- table[[1]]
 medailles <- as.data.frame(first_table)
 str(medailles)
 
-medailles_trois <- jo %>%
-  html_nodes("table") %>%
-  .[[3]] %>%
-  html_table(fill = TRUE)
- 
-View(medailles_trois)
+View(first_table)
 
-write.csv(medailles,'medailles.csv')
+write.csv(first_table,'medailles.csv')
 
 #Documentation https://www.rdocumentation.org/packages/rvest/versions/0.3.6
