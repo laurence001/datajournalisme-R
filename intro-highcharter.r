@@ -1,4 +1,5 @@
 library(tidyverse)
+library(lubridate)
 library(highcharter)
 library(dslabs)
 
@@ -23,6 +24,20 @@ gapminder %>%
   filter(country == countries) %>%
   hchart(
     'column', hcaes(x = country, y = life_expectancy)
+  ) %>%
+  hc_colors("#CC0033")
+
+gapminder %>%
+  filter(country == countries) %>%
+  hchart(
+    'lollipop', hcaes(x = country, y = life_expectancy)
+  ) %>%
+  hc_colors("#CC0033")
+
+gapminder %>%
+  filter(country == countries) %>%
+  hchart(
+    'columnpyramid', hcaes(x = country, y = life_expectancy)
   ) %>%
   hc_colors("#CC0033")
 
@@ -54,10 +69,27 @@ gapminder %>%
 gapminder %>% 
   filter(country == countries & year > 2002 & year < 2013) %>%
   hchart(
-    'column', hcaes(x = year, y = life_expectancy, group = country)
+    'bar', hcaes(x = year, y = life_expectancy, group = country)
   )  %>%
   hc_plotOptions(column = list(stacking = "normal")) %>%
   hc_colors(c("#999999", "#E69F00","#CC0033"))
+
+
+gapminder %>%
+  filter(country == countries) %>%
+  hchart(
+    'columnpyramid', hcaes(x = country, y = life_expectancy)
+  ) %>%
+  hc_chart(inverted = T) %>%
+  hc_add_theme(hc_theme_google())
+
+gapminder %>%
+  filter(country == countries) %>%
+  hchart(
+    'columnpyramid', hcaes(x = country, y = life_expectancy, group = country)
+  ) %>%
+  hc_chart(inverted = T) %>%
+  hc_add_theme(hc_theme_google())
 
 #Stacked
 
@@ -176,11 +208,12 @@ gapminder %>%
 
 pays <- gapminder %>%
   filter(region %in% c("Western Europe","Eastern Europe","Southern Europe","Northern Europe") & year == 2012) %>%
-  select(country,population)
+  select(country,population,life_expectancy)
 
 pays %>%
   hchart(type = "treemap", hcaes(x = country, value = population, color = population))
 
+         
 #Options de graphiques
 
 # hc_title(text = "titre ici")
@@ -191,6 +224,8 @@ pays %>%
 # hc_yAxis(title = list(text = "Titre axe Y"))
 # hc_xAxis(title = list(text = "Titre axe X"))
 # hc_add_theme(nom_du_theme())
+
+#Charts : https://www.highcharts.com/docs/
 
 
 #Carte : gdp mensuel par habitant
