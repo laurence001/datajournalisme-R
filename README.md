@@ -10,6 +10,7 @@
 6. Cas-communes-covidbe : application pratique Datatable
 7. Scraping : introduction rvest
 8. Theme-highcharter : personnalisation dataviz (couleurs, typos)
+9. Timeline (data : mesures Covid en Belgique, 2020)
 
 Données Covid-19 Sciensano : https://epistat.wiv-isp.be/covid/
 Données package dslabs : https://www.rdocumentation.org/packages/dslabs/versions/0.7.3
