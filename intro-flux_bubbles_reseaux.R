@@ -167,27 +167,27 @@ visNetwork(nodes, edges, height = "500px") %>%
 #Documentation https://datastorm-open.github.io/visNetwork/igraph.html
 
 #Préparation des nodes et edges
-
+View(reseau)
 Target <- c("Western Europe","Eastern Europe","Southern Europe","Northern Europe")
 Source <- c("Europe","Europe","Europe","Europe")
 ts <- data.frame(Target,Source)
+
 reseaub <- data.frame(reseau$Target,reseau$Source)
 colnames(reseaub) <- c("Target","Source")
 reseaub <- rbind(ts,reseaub)
-
+str(reseaub)
 value <- as.factor(reseaub$Source)
-
+value
 value <- recode_factor(value, "Europe" = "1")
 value <- recode_factor(value, "Eastern Europe" = "2")
 value <- recode_factor(value, "Northern Europe" = "3")
 value <- recode_factor(value, "Southern Europe" = "4")
 value <- recode_factor(value, "Western Europe" = "5")
-levels(value)
-value <- as.numeric(value)
-id <- as.vector(1:47)
-label <- as.vector(reseaub$Source)
-title <- as.vector(reseaub$Source)
-nodes <- data.frame(id, label,value,title)
+View(value)
+id <- as.vector(1:43)
+label <- as.vector(reseaub$Target)
+title <- as.vector(reseaub$Target)
+nodes <- data.frame(id, value,title,label)
 
 View(nodes)
 
@@ -195,7 +195,7 @@ label <- as.vector(reseaub$Target)
 title  <- as.vector(reseaub$Target)
 from <- id
 to <- value
-edges <- data.frame(from,to,label,title)
+edges <- data.frame(from,to,title,label)
 
 View(edges)
 
