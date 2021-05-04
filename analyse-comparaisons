@@ -1,0 +1,75 @@
+library(tidyverse)
+
+pays <- c("France","Belgique","Pays-Bas","Inde")
+cas <- c(5656007,997000,1507615,20282833)
+population <- c(66732538,11667318,17483925,1393409000)
+
+datacov <- data.frame(pays,cas,population)
+
+str(datacov)
+summary(datacov)
+
+#taux
+datacov <- datacov %>%
+  mutate (taux = (cas/population)*100000)
+
+#Taux avec pourcentage arrondi
+datacov <- datacov %>%
+  mutate(pc = round( (cas/population)*100,2))
+
+#Loi normale (distribution, Gauss)
+moy <- mean(datacov$cas)
+std <- sd(datacov$cas)
+
+plot(function(x) dnorm(x,moy,std),  moy-4*std, moy+4*std,xlab="x",ylab="",main = "")
+
+library(ggplot2)
+ggplot(datacov, aes(x=cas)) + 
+  geom_density() + 
+  geom_vline(aes(xintercept=mean(cas)),
+              color="red", linetype="dotted", size=1)
+install.packages("cowplot")
+
+library(cowplot)
+ggplot(datacov, aes(cas)) +
+  stat_function(fun = dnorm, n = 101, args = list(mean = 0, sd = 1)) + ylab("") +
+  scale_y_continuous(breaks = NULL)
+
+#z-score : le score z est une mesure qui montre à quel point (en dessous ou au-dessus) de la moyenne se trouve une valeur spécifique (individuelle) dans un ensemble de données. 
+# = valeur - moyenne / écart type (standard deviation) = standardisation, normalisation (test non paramétrique)
+datacov <- datacov %>%
+  mutate (zscore = round((cas - mean(cas))/sd(cas),2))
+
+datacov
+
+#test de Wilcoxon : test si les médianes de deux échantillon non indépendants (appariés) sont proches
+#à utiliser quand la normalité n'est pas acceptée (pas de "cloche" comme dans ce cas)
+
+x <- datacov$cas
+y <- datacov$pc
+wilcox.test(x, y)
+
+###les deux échantillons ne sont pas significativement différents
+##Documentation : http://www.sthda.com/french/wiki/test-de-wilcoxon-avec-r
+
+#Test de t de Student, lorsque la normalité est acceptée (ne s'applique pas dans ce cas mais voir formule ci-dessous)
+
+test<-t.test(x,y)
+test
+
+test$p.value # Affichage de la p-value = probabilité pour un modèle statistique donné sous l'hypothèse nulle d'obtenir la même valeur ou une valeur encore plus extrême que celle observée
+#Plus la valeur de p est petite, plus la probabilité de faire une erreur en rejetant l'hypothèse nulle est faible
+
+test$parameter # Affichage du degré de liberté = le nombre d'observations moins le nombre de relations nécessaires entre ces observations 
+
+test$statistic # Affichage de la statistique t (valeur de t)
+
+#Documentation : 
+##http://www.sthda.com/french/wiki/test-de-student-est-il-toujours-correct-de-comparer-des-moyennes
+##http://www.sthda.com/french/wiki/test-de-student-non-apparie-avec-r-comparaison-de-moyennes-de-deux-groupes-d-echantillons-independants
+
+#Fisher test : comme le test de Student, il sert à comparer les moyennes et les variances de deux échantillons gaussiens. 
+
+fisher.test(x,y)
+
+#Documentation: https://webapps.unamur.be/umdb/biostats/?q=book/export/html/309
