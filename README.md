@@ -4,14 +4,15 @@
 
 1. Intro : rappel des fonctionnalités de base
 2. Intro-tydiverse : analyse des données
-3. Analyse-covidbe : analyse (data Covid-19 Belgique)
-4. Intro-highcharter : fonctions de base
-5. Dataviz-covidbe : dataviz avec Higharter, data Covid-19 Belgique
-6. Cas-communes-covidbe : application pratique Datatable
-7. Scraping : introduction rvest
-8. Theme-highcharter : personnalisation dataviz (couleurs, typos)
-9. Timeline (data : mesures Covid en Belgique, 2020)
-10. Intro : diagrammes de flux, bubble charts, réseaux
+3. Analyse-comparaisons
+4. Analyse-covidbe : analyse (data Covid-19 Belgique)
+5. Intro-highcharter : fonctions de base
+6. Dataviz-covidbe : dataviz avec Higharter, data Covid-19 Belgique
+7. Cas-communes-covidbe : application pratique Datatable
+8. Scraping : introduction rvest
+9. Theme-highcharter : personnalisation dataviz (couleurs, typos)
+10. Timeline (data : mesures Covid en Belgique, 2020)
+11. Intro : diagrammes de flux, bubble charts, réseaux
 
 Données Covid-19 Sciensano : https://epistat.wiv-isp.be/covid/
 Données package dslabs : https://www.rdocumentation.org/packages/dslabs/versions/0.7.3
