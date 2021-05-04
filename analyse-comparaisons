@@ -73,3 +73,5 @@ test$statistic # Affichage de la statistique t (valeur de t)
 fisher.test(x,y)
 
 #Documentation: https://webapps.unamur.be/umdb/biostats/?q=book/export/html/309
+
+##Voir aussi : https://inomics.com/blog/standardizing-the-data-of-different-scales-which-method-to-use-1036202
