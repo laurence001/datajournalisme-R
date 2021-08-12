@@ -113,6 +113,8 @@ revenus <- revenus %>%
 
 head(revenus)
 
+#visualisations
+
 revenus %>% 
   ggplot(aes(x = country, y = dollar_mois, fill = country)) +
   geom_bar(stat = "identity") +
