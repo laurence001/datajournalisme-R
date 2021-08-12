@@ -201,6 +201,7 @@ names(tableau)[2] #Affiche l'étiquette de la 2e colonne du tableau
 
 summary(tableau$Pertes) #Sommaire de la colonne "Pertes"
 
+moinsunecol <- (tableau, -Pertes) #on place un - devant le nom de la variable que l'on souhaite supprimer
 
 #Affiche la première colonne
 
