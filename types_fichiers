@@ -34,7 +34,7 @@ mesdata <- as.data.frame(do.call("cbind", foot))
 str(mesdata)
 
 #Enregistrer le fichier
-write.csv(mesdata,'cov_json.csv')
+write.csv(mesdata,'euro2020.csv')
 
 ####OUvrir un PDF
 
@@ -64,108 +64,3 @@ f2 <- "https://github.com/leeper/tabulizer/raw/master/inst/examples/data.pdf"
 extract_tables(f2, pages = 2)
 
 #Doc: https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html
-
-###Scraper Twitter
-
-library(tidyverse)
-library(lubridate)
-library(scales)
-
-#install.packages("rtweet")
-library(rtweet)
-
-#doc
-#https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html
-#https://cran.r-project.org/web/packages/rtweet/rtweet.pdf
-#https://cran.r-project.org/web/packages/rtweet/vignettes/intro.html
-
-api_key <- "macle"
-api_secret_key <- "maclesecrete"
-
-token <- create_token(
-  app = "laurencefirstapp",
-  consumer_key = api_key,
-  consumer_secret = api_secret_key)
-
-token
-
-#Créer un compte sur Twitter Dev et récupérer les code + créer app
-access_token <- "xxx"
-access_token_secret <- "xxx"
-
-
-token <- create_token(
-  app = "laurencefirstapp",
-  consumer_key = api_key,
-  consumer_secret = api_secret_key,
-  access_token = access_token,
-  access_secret = access_token_secret)
-
-get_token()
-
-rt <- search_tweets(
-  "#pfizer", n = 500, include_rts = FALSE
-)
-
-pfizer <- as.data.frame(rt)
-str(pfizer)
-
-#install.packages('tidytext')
-library(tidyverse)
-library(tidytext)
-
-pfizertxt <- pfizer$text
-
-pfizertxt <- as.data.frame(pfizertxt)
-
-View(pfizertxt)
-
-#supprimer lignes vides
-
-clean1 <- pfizertxt %>%
-  select(pfizertxt)  %>%
-  filter(!is.na(pfizertxt))
-
-prepa <- clean1 %>%
-  unnest_tokens(word, pfizertxt)
-
-stopd <- data.frame(word = stop_words$word)
-
-clean2 <- prepa %>%
-  anti_join (stopd, by ="word")
-
-countw <- clean2 %>%
-  count(word, sort = TRUE) 
-
-countw2 <- clean2 %>%
-  count(word, sort = TRUE) %>%
-  filter(n > 200) %>%
-  mutate(word = reorder(word, n)) %>%
-  ggplot(aes(word, n)) +
-  geom_col() +
-  xlab(NULL) +
-  coord_flip()
-countw2
-
-
-#WordCloud
-#Voir https://towardsdatascience.com/create-a-word-cloud-with-r-bde3e7422e8a
-
-
-###Extraire données Google Scholar
-#install.packages("scholar")
-library(scholar)
-
-id <- '0N9TTo0AAAAJ&hl'
-l <- get_profile(id)
-l$name
-p <- get_publications(id)
-head(p, 3)
-View(p)
-
-#Graphique historique des citations
-library(ggplot2)
-ct <- get_citation_history(id)
-ggplot(ct, aes(year, cites)) + geom_line() + geom_point()
-
-#DOC https://rdrr.io/github/jkeirstead/scholar/
