@@ -4,13 +4,13 @@
 
 1. Intro : rappel des fonctionnalités de base
 2. Types de fichiers : ouvrir des fichiers CSV, JSON, PDF
-3. Intro-tydiverse : analyse des données
-4. Analyse-comparaisons
-5. Analyse-covidbe : analyse (data Covid-19 Belgique)
-6. Intro-highcharter : fonctions de base
-7. Dataviz-covidbe : dataviz avec Higharter, data Covid-19 Belgique
-8. Cas-communes-covidbe : application pratique Datatable
-9. Scraping : introduction rvest + scraper Twitter et Google Scholar
+3. Scraping : introduction rvest + scraper Twitter et Google Scholar
+4. Intro-tydiverse : analyse des données
+5. Analyse-comparaisons
+6. Analyse-covidbe : analyse (data Covid-19 Belgique)
+7. Intro-highcharter : fonctions de base
+8. Dataviz-covidbe : dataviz avec Higharter, data Covid-19 Belgique
+9. Cas-communes-covidbe : application pratique Datatable
 10. Theme-highcharter : personnalisation dataviz (couleurs, typos)
 11. Timeline (data : mesures Covid en Belgique, 2020)
 12. Intro : diagrammes de flux, bubble charts, réseaux
