@@ -1,0 +1,171 @@
+###Choisir un répertoire par défaut
+#Tools –> Global options –> Browse
+##CSV,GITHUB,JSON,PDF,TWITTER,GOOGLE SCHOLAR
+
+###OUvrir un fichier XLS
+library(readxl)
+dataset <- read_excel(NULL)
+View(dataset)
+
+####Ouvrir un fichier CSV
+epistat_csv <- read.csv("https://epistat.sciensano.be/Data/COVID19BE_CASES_AGESEX.csv", header = TRUE, fileEncoding = "UTF-8")
+cov_csv <- as.data.frame(epistat_csv)
+
+###Ouvrir un fichier hébergé sur Github
+#cliquer sur "raw" pour obtenir le lien
+
+variants <- read.csv("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/variants/covid-variants.csv")
+
+str(variants)
+
+###OUvrir un fichier JSON
+#install.packages("rjson")
+library(rjson)
+
+euro2020 <- fromJSON(file = "https://raw.githubusercontent.com/lsv/uefa-euro-2020/master/data.json")
+
+foot <- lapply(euro2020, function(x) {
+  x[sapply(x, is.null)] <- NA
+  unlist(x)
+})
+
+mesdata <- as.data.frame(do.call("cbind", foot))
+
+str(mesdata)
+
+#Enregistrer le fichier
+write.csv(mesdata,'cov_json.csv')
+
+####OUvrir un PDF
+
+#install.packages("tm")
+library(tm)
+read <- readPDF(control = list(text = "-layout"))
+
+document <- Corpus(URISource("978-3-030-51110-4.pdf"), readerControl = list(reader = read))
+doc <- content(document[[1]])
+doc[12]
+
+#Extraire les métadonnées d'un PDF
+#install.packages("rjpod", repos="http://R-Forge.R-project.org")
+library(rjpod)
+pdf <- pdfXMP("978-3-030-51110-4.pdf", jabrefOnly = FALSE)
+head(pdf)
+
+#Extraire un tableau d'un PDF
+install.packages("tabulizer")
+library("tabulizer")
+
+#f <- system.file("examples", "data.pdf", package = "tabulizer")
+#tab <- extract_tables(f, pages = 1)
+#head(tab[[1]])
+
+f2 <- "https://github.com/leeper/tabulizer/raw/master/inst/examples/data.pdf"
+extract_tables(f2, pages = 2)
+
+#Doc: https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html
+
+###Scraper Twitter
+
+library(tidyverse)
+library(lubridate)
+library(scales)
+
+#install.packages("rtweet")
+library(rtweet)
+
+#doc
+#https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html
+#https://cran.r-project.org/web/packages/rtweet/rtweet.pdf
+#https://cran.r-project.org/web/packages/rtweet/vignettes/intro.html
+
+api_key <- "macle"
+api_secret_key <- "maclesecrete"
+
+token <- create_token(
+  app = "laurencefirstapp",
+  consumer_key = api_key,
+  consumer_secret = api_secret_key)
+
+token
+
+#Créer un compte sur Twitter Dev et récupérer les code + créer app
+access_token <- "xxx"
+access_token_secret <- "xxx"
+
+
+token <- create_token(
+  app = "laurencefirstapp",
+  consumer_key = api_key,
+  consumer_secret = api_secret_key,
+  access_token = access_token,
+  access_secret = access_token_secret)
+
+get_token()
+
+rt <- search_tweets(
+  "#pfizer", n = 500, include_rts = FALSE
+)
+
+pfizer <- as.data.frame(rt)
+str(pfizer)
+
+#install.packages('tidytext')
+library(tidyverse)
+library(tidytext)
+
+pfizertxt <- pfizer$text
+
+pfizertxt <- as.data.frame(pfizertxt)
+
+View(pfizertxt)
+
+#supprimer lignes vides
+
+clean1 <- pfizertxt %>%
+  select(pfizertxt)  %>%
+  filter(!is.na(pfizertxt))
+
+prepa <- clean1 %>%
+  unnest_tokens(word, pfizertxt)
+
+stopd <- data.frame(word = stop_words$word)
+
+clean2 <- prepa %>%
+  anti_join (stopd, by ="word")
+
+countw <- clean2 %>%
+  count(word, sort = TRUE) 
+
+countw2 <- clean2 %>%
+  count(word, sort = TRUE) %>%
+  filter(n > 200) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(word, n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip()
+countw2
+
+
+#WordCloud
+#Voir https://towardsdatascience.com/create-a-word-cloud-with-r-bde3e7422e8a
+
+
+###Extraire données Google Scholar
+#install.packages("scholar")
+library(scholar)
+
+id <- '0N9TTo0AAAAJ&hl'
+l <- get_profile(id)
+l$name
+p <- get_publications(id)
+head(p, 3)
+View(p)
+
+#Graphique historique des citations
+library(ggplot2)
+ct <- get_citation_history(id)
+ggplot(ct, aes(year, cites)) + geom_line() + geom_point()
+
+#DOC https://rdrr.io/github/jkeirstead/scholar/
