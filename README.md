@@ -12,7 +12,8 @@
 8. Cas-communes-covidbe : application pratique Datatable
 9. Theme-highcharter : personnalisation dataviz (couleurs, typos)
 10. Timeline (data : mesures Covid en Belgique, 2020)
-11. Intro : diagrammes de flux, bubble charts, réseaux
+11. Dataviz collection : diagrammes de flux, bubble charts, réseaux, waffles, radar
+12. Cartes : highcharter, leaflet
 
 Données Covid-19 Sciensano : https://epistat.wiv-isp.be/covid/
 Données package dslabs : https://www.rdocumentation.org/packages/dslabs/versions/0.7.3
