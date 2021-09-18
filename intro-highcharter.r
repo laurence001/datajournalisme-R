@@ -226,35 +226,3 @@ pays %>%
 # hc_add_theme(nom_du_theme())
 
 #Charts : https://www.highcharts.com/docs/
-
-
-#Carte : gdp mensuel par habitant
-
-gapminder <- gapminder %>%
-  mutate(dollar_mois = gdp/population/12)
-
-pays_gdp <- data.frame(gapminder$country, gapminder$year, gapminder$dollar_mois)
-
-colnames(pays_gdp) <- c("country","year","gdp")
-
-years = 2016
-pays_gdp <- pays_gdp %>%
-  filter(years %in% year & !is.na(gdp)) %>%
-  select(country,gdp)
-
-hcmap(
-  "custom/world-robinson-lowres", 
-  data = pays_gdp,
-  name = "GDP - month/capita", 
-  value = "gdp",
-  borderWidth = 0,
-  nullColor = "#d3d3d3",
-  joinBy = c("name", "country") #on recherche le nom du pays dans le geojson et le fichier data
-) %>%
-  hc_colorAxis(
-    stops = color_stops(colors = viridisLite::inferno(10, begin = 0.1)), #modÃ¨le de couleurs inferno
-    type = "logarithmic" #peut Ãªtre numeric (meilleur logarithmic pour visualiser les diffÃ©rences - granularitÃ©)
-  ) 
-
-#Fonds de carte : https://github.com/highcharts/map-collection-dist
-#R Color Palette : https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
