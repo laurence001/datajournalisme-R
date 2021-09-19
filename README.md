@@ -35,6 +35,8 @@ Exploration des data covid avec R : https://blog.rstudio.com/2020/12/23/explorin
 
 HTML widgets pour R : http://gallery.htmlwidgets.org/
 
+RGraph Gallery : https://www.r-graph-gallery.com/
+
 R pour journalistes : https://rforjournalists.com/
 
 Outils pour l'analyse du discours : https://journodev.tech/outils-pour-lanalyse-du-discours/
