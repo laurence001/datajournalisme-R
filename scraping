@@ -143,3 +143,11 @@ ct <- get_citation_history(id)
 ggplot(ct, aes(year, cites)) + geom_line() + geom_point()
 
 #DOC https://rdrr.io/github/jkeirstead/scholar/
+
+##Copier-coller des données d'un tableau
+install.packages("datapasata")
+library(datapasta)
+library(tibble)
+
+mavariable <- #action : copier le tableau (depuis une page web, un tableaur) puis cliquer sur "Addins" (Paste as tibble, par exemple)
+str(mavariable)
