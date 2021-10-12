@@ -14,6 +14,8 @@
 10. Timeline (data : mesures Covid en Belgique, 2020)
 11. Dataviz collection : diagrammes de flux, bubble charts, réseaux
 12. Maps : highcharter, leaflet
+13. Analyse de sentiments (Twitter scraping)
+14. Additionnel : syllabus 21-22
 
 Données Covid-19 Sciensano : https://epistat.wiv-isp.be/covid/
 Données package dslabs : https://www.rdocumentation.org/packages/dslabs/versions/0.7.3
