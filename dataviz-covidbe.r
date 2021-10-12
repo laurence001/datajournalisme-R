@@ -1,7 +1,6 @@
 #Page Covid JournoDev : https://journodev.tech/covid19/
 
 library(tidyverse)
-library(lubridate)
 library(highcharter)
 
 #augmentation de la mémoire
