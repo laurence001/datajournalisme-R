@@ -51,4 +51,4 @@ Datavis with R : https://rkabacoff.github.io/datavis/
 
 BBC-Data-Unit / prisons-children-coronavirus  : https://github.com/BBC-Data-Unit/prisons-children-coronavirus
 
-Boîte à outils data : https://journodev.tech/tools/
+Boîte à outils data/R : https://journodev.tech/tools/ 
