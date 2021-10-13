@@ -52,3 +52,10 @@ Datavis with R : https://rkabacoff.github.io/datavis/
 BBC-Data-Unit / prisons-children-coronavirus  : https://github.com/BBC-Data-Unit/prisons-children-coronavirus
 
 Boîte à outils data/R : https://journodev.tech/tools/ 
+
+##Cheat Sheets
+
+Data transformations (dplyr/tydiverse) : https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf
+Data Visualization (ggplot2/tydiverse) : https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf
+Highcharter : https://cheatography.com/dmvohyeah/cheat-sheets/highcharter/
+
