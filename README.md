@@ -53,7 +53,7 @@ BBC-Data-Unit / prisons-children-coronavirus  : https://github.com/BBC-Data-Unit
 
 Boîte à outils data/R : https://journodev.tech/tools/ 
 
-##Cheat Sheets
+## Cheat Sheets
 
 Data transformations (dplyr/tydiverse) : https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf
 
