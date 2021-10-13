@@ -6,6 +6,7 @@
             "properties": {},
             "geometry": {
                 "type": "Polygon",
+		 "name": "Bruxelles",
                 "coordinates": [
                     [
                         [4.368067, 50.814831],
@@ -112,8 +113,7 @@
                         [4.368067, 50.814831]
                     ]
                 ]
-            },
-			"name": "Bruxelles"
+            }
         },
 		
 		{
@@ -121,6 +121,7 @@
             "properties": {},
             "geometry": {
                 "type": "Polygon",
+		 "name": "Schaerbeek",
                 "coordinates": [
                     [
                         [4.396082, 50.843384],
@@ -147,12 +148,12 @@
                         [4.396082, 50.843384]
                     ]
                 ]
-            },
-			"Name" : "Schaerbeek"
+            }
         },
-		{
+	{
             "type": "Feature",
             "properties": {},
+	    "name": "Etterbeek",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -179,12 +180,13 @@
                         [4.407609, 50.838806]
                     ]
                 ]
-            },
-			"Name" : "Etterbeek"
+            }
         },
-{
+	
+	{
             "type": "Feature",
             "properties": {},
+	    "names": "Ixelles",
             "geometry": {
                 "type": "GeometryCollection",
                 "geometries": [
@@ -250,12 +252,12 @@
                         ]
                     }
                 ]
-            },
-			"Name" : "Ixelles"
+            }
         },
-		{
+	{
             "type": "Feature",
             "properties": {},
+	    "name": "Saint-Gilles",
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
@@ -277,7 +279,6 @@
                     ]
                 ]
             }
-			"Name": "Saint-Gilles"
         }
     
 	
