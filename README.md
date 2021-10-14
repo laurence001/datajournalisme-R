@@ -2,20 +2,20 @@
 
 ## Menu
 
-1. Intro : rappel des fonctionnalités de base
-2. Types de fichiers : ouvrir des fichiers CSV, JSON, PDF
-3. Scraping : introduction rvest + scraper Twitter et Google Scholar
-4. Intro-tydiverse : analyse des données
-5. Analyse-covidbe : analyse (data Covid-19 Belgique)
-6. Intro-highcharter : fonctions de base
-7. Dataviz-covidbe : dataviz avec Higharter, data Covid-19 Belgique
-8. Cas-communes-covidbe : application pratique Datatable
-9. Theme-highcharter : personnalisation dataviz (couleurs, typos)
-10. Timeline (data : mesures Covid en Belgique, 2020)
-11. Dataviz collection : diagrammes de flux, bubble charts, réseaux
-12. Maps : highcharter, leaflet
+1. intro-base.r : fonctionnalités de base
+2. intro-type.r : ouvrir des fichiers CSV, JSON, PDF
+3. scraping.r : introduction rvest + scraper Twitter et Google Scholar
+4. analyse-tidyverse.r : analyse des données avec tidyverse (intro)
+5. analyse-covidbe.r : analyse (data Covid-19 Belgique, exemple application pratique)
+6. dataviz-highcharter.r : fonctions de base et catalogue de graphiques
+7. dataviz-covidbe.r : dataviz highcharter, application pratique
+8. datatable-covidbe.r : application pratique, package DT
+9. theme-highcharter.r : personnalisation dataviz (couleurs, typos)
+11. dataviz collection.r : diagrammes de flux, bubble charts, réseaux (intro)
+12. intro-maps.r : highcharter, leaflet
 13. Analyse de sentiments (Twitter scraping)
 14. Additionnel : syllabus 21-22
+15. Timeline (data : mesures Covid en Belgique, 2020, répertoire)
 
 Données Covid-19 Sciensano : https://epistat.wiv-isp.be/covid/
 Données package dslabs : https://www.rdocumentation.org/packages/dslabs/versions/0.7.3
