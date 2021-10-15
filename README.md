@@ -20,11 +20,17 @@
 Données Covid-19 Sciensano : https://epistat.wiv-isp.be/covid/
 Données package dslabs : https://www.rdocumentation.org/packages/dslabs/versions/0.7.3
 
-## Fonds de cartes
+## Carto
+
 Bruxelles https://public.flourish.studio/visualisation/1507598/
+
 https://github.com/laurence001/map-collection-dist
+
 https://github.com/laurence001/Municipalities-in-Belgium
 
+Leaflet for R : https://rstudio.github.io/leaflet/
+
+Highmaps : https://jkunst.com/highcharter/articles/maps.html
 
 ### Ressources complémentaires
 
