@@ -34,6 +34,9 @@ Highmaps : https://jkunst.com/highcharter/articles/maps.html
 
 ### Ressources complémentaires
 
+Exemple d'enquête data (BBC) : https://github.com/BBC-Data-Unit/prisons-children-coronavirus
+Article - https://www.bbc.com/news/uk-56420186
+
 Documentation packages Tidyverse : https://www.tidyverse.org/packages/
 
 Cookbook BBC Visual & DDJ : https://bbc.github.io/rcookbook/
