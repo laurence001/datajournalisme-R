@@ -35,7 +35,7 @@ Highmaps : https://jkunst.com/highcharter/articles/maps.html
 ### Ressources complémentaires
 
 Exemple d'enquête data (BBC) : https://github.com/BBC-Data-Unit/prisons-children-coronavirus
-Article - https://www.bbc.com/news/uk-56420186
+- Article - https://www.bbc.com/news/uk-56420186
 
 Documentation packages Tidyverse : https://www.tidyverse.org/packages/
 
@@ -63,8 +63,6 @@ Ggplot2, stripchart (jitter) : http://www.sthda.com/french/wiki/ggplot2-stripcha
 Nettoyage de doublons : http://www.datanovia.com/en/lessons/identify-and-remove-duplicate-data-in-r/#at_pco=smlwn-1.0&at_si=5fe976f5cd4c13b1&at_ab=per-2&at_pos=0&at_tot=1
 
 Datavis with R : https://rkabacoff.github.io/datavis/
-
-BBC-Data-Unit / prisons-children-coronavirus  : https://github.com/BBC-Data-Unit/prisons-children-coronavirus
 
 Boîte à outils data/R : https://journodev.tech/tools/ 
 
